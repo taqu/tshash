@@ -1,0 +1,2 @@
+# tshash
+Simple hash function

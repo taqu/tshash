@@ -137,10 +137,6 @@ TSHASH_STATIC tshash_u64 tshash_load12(const tshash_u8* const ptr, size_t l)
     return (x0<<16) | (x1<<8) | x2;
 }
 
-TSHASH_STATIC tshash_u64 tshash_rotl64(tshash_u64 x, tshash_u32 k)
-{
-    return (x<<k) | (x>>(64-k));
-}
 TSHASH_NAMESPACE_END
 
 #if defined(__SIZEOF_INT128__) && !(TSHASH_DEBUG_NO_INTRINSIC)
@@ -238,6 +234,4 @@ tshash_u32 tshash32(size_t size, const void* const data, tshash_u64 seed)
     tshash_u64 hash = tshash64(size, data, seed);
     return (tshash_u32)((hash>>32ULL) ^ (hash&0xFFFFFFFFULL));
 }
-
 TSHASH_EXTERN_C_END
-

@@ -5,9 +5,6 @@ set(CMAKE_CONFIGURATION_TYPES "Debug" "Release")
 set(PROJECT_NAME test)
 project(${PROJECT_NAME})
 
-include_directories(AFTER ${CMAKE_CURRENT_SOURCE_DIR}/../include)
-include_directories(AFTER ${CMAKE_CURRENT_SOURCE_DIR}/../crater)
-
 ########################################################################
 # Sources
 set(HEADERS "tshash.h")
@@ -25,7 +22,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE "${OUTPUT_DIRECTORY}")
 add_executable(${PROJECT_NAME} ${FILES})
 
 if(MSVC)
-    set(DEFAULT_C_FLAGS "/DWIN32 /D_WINDOWS /D_UNICODE /DUNICODE /W4 /WX- /nologo /fp:precise /arch:AVX /Zc:wchar_t /TP /Gd /std:c++17 /std:c11 /DLG3_GFX_USE_WIN32 /DVK_USE_PLATFORM_WIN32_KHR")
+    set(DEFAULT_C_FLAGS "/DWIN32 /D_WINDOWS /D_UNICODE /DUNICODE /W4 /WX- /nologo /fp:precise /arch:AVX /Zc:wchar_t /TP /Gd /std:c++17 /std:c11")
     if(MSVC_VERSION VERSION_LESS_EQUAL "1900")
         set(DEFAULT_C_FLAGS "${DEFAULT_C_FLAGS} /Zc:__cplusplus /std:c++latest")
     else()

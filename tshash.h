@@ -51,7 +51,20 @@ typedef uint64_t tshash_u64;
 #endif
 
 TSHASH_EXTERN_C
+/**
+ @brief Calculate the hash of data.
+ @param [in] size ... The size of data in bytes.
+ @param [in] data ... The data for hashing. If the size is zero, the data can be null.
+ @param [in] seed ... A seed to get a variation of the hash function. Recommended to use the default, because this function has some known bad seeds.
+ */
 tshash_u64 tshash64(size_t size, const void* const data, tshash_u64 seed);
+
+/**
+ @brief Calculate the hash of data.
+ @param [in] size ... The size of data in bytes.
+ @param [in] data ... The data for hashing. If the size is zero, the data can be null.
+ @param [in] seed ... A seed to get a variation of the hash function. Recommended to use the default, because this function has some known bad seeds.
+ */
 tshash_u32 tshash32(size_t size, const void* const data, tshash_u64 seed);
 TSHASH_EXTERN_C_END
 #endif //INC_TSHASH_H_
